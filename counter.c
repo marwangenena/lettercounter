@@ -77,4 +77,36 @@ int main()
   printf("The least frequently occurring letter is %c.\n", min_pos + 65);
 
   return 0;
+
+}
+// Returns the position in array count of the associated letter that 
+// occurred the maximum number of times
+int max(int count[])
+{
+  int max = count[0];
+  int max_pos = 0;
+  for (int i = 0; i < 26; i++) {
+    if (count[i] > max)
+    {
+      max_pos = i;
+      max = count[i];
+    }
+  }  
+  return max_pos;
+}
+
+// Returns the position in array count of the associated letter that 
+// occurred the minimum number of times
+int min(int count[])
+{
+  int min = count[max(count)];
+  int min_pos = max(count);
+  for (int i = 0; i < 26; i++) {
+    if (count[i] < min && count[i]!=0)
+    {
+      min_pos = i;
+      min = count[i];
+    }
+  }  
+  return min_pos;
 }
